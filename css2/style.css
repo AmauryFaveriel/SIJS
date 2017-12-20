@@ -1,0 +1,250 @@
+html:-moz-full-screen {
+  overflow: hidden;
+}
+
+html:-webkit-full-screen {
+  overflow: hidden;
+}
+
+html:fullscreen {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.containerAllVideo {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  width: 1030px;
+  margin-left: 50vw;
+  transform: translate(-50%, 0);
+  background-color: transparent;
+}
+
+.containerAllVideoFullScreen {
+  margin-top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.playerContainer {
+  display: none;
+  background-color: black;
+  width: 712px;
+  height: 400px;
+}
+
+.playerContainerFullScreen {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.video {
+  position: absolute;
+  width: 712px;
+  height: 400px;
+}
+
+.videoFullScreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.vidMenu {
+  position: relative;
+  top: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vidMenuFullScreen {
+  top: 95%;
+}
+
+.menuItem {
+  display: inline;
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.menuItem:hover {
+  cursor: pointer;
+}
+
+.filmName:hover {
+  cursor: pointer;
+}
+
+.fullScreen:hover {
+  cursor: pointer;
+}
+
+.fullScreen {
+  margin-right: 15px;
+}
+
+.fullScreenSkin {
+  background: none;
+}
+
+.listContainer {
+  width: 100%;
+  padding: 0 10%;
+}
+
+.listAll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filmList {
+  width: 21%;
+  cursor: pointer;
+}
+
+.filmImg{
+  width: 100%;
+}
+
+.pause {
+  background: none;
+  width: 20px;
+  height: 20px;
+  border-style: double;
+  border-width: 0px 0px 0px 20px;
+  border-color: #fff;
+  outline: none;
+  margin-top: 8px;
+  margin-left: 15px;
+}
+
+.pause:hover {
+  cursor: pointer;
+}
+
+.play {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 10px 0px 10px 20px;
+  border-color: transparent transparent transparent #fff;
+  outline: none;
+  margin-top: 8px;
+  margin-left: 15px;
+}
+
+.play:hover {
+  cursor: pointer;
+}
+
+.stop {
+  margin-top: 6px;
+  width: 30px;
+  height: 30px;
+  border-color: #fff;
+}
+
+.stop:hover {
+  cursor: pointer;
+}
+
+.progressContainer {
+  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+#progressBarControl {
+  background: #D8D8D8;
+  height: 7px;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+#progressBar {
+  background: #4a90e2;
+  height: 7px;
+  border-radius: 3px;
+}
+
+#progressTime {
+  color: white;
+}
+
+#progressTime:after {
+  content: '/';
+  padding: 0 8px;
+}
+
+.totalTime {
+  color: #4a90e2;
+}
+
+.songContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.songIcon {
+  margin-top: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.songBar {
+  width: 100px;
+}
+
+.fullScreen {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.describ {
+  display: none;
+  width: 300px;
+  background: transparent;
+  padding: 10px;
+  color: #fff;
+}
+
+.rating{
+  width: 20px;
+  height: 20px;
+  display: inline;
+}
+
+.videoTitle {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  line-height: 32px;
+}
+
+.videoAuthor {
+  color: #4A90E2;
+  font-size: 23px;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+  line-height: 22px;
+}
+
+.videoDescription {
+  color: #535353;
+  font-size: 15px;
+  font-family: "montserrat-light";
+  letter-spacing: 1.5px;
+  line-height: 20px;
+}
