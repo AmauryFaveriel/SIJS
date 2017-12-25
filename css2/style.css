@@ -76,9 +76,9 @@ html:fullscreen {
   cursor: pointer;
 }
 
-.filmName:hover {
-  cursor: pointer;
-}
+
+
+
 
 .fullScreen:hover {
   cursor: pointer;
@@ -103,13 +103,64 @@ html:fullscreen {
   justify-content: space-between;
 }
 
+.imgAllContainer{
+  position: relative;
+}
+
 .filmList {
   width: 21%;
+  height: 500px;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 
 .filmImg{
   width: 100%;
+  position: absolute;
+  right: 0;
+}
+
+.contenuImgContainer{
+  position: relative;
+  width: 100%;
+  height: 91%;
+  background: rgba(0,0,0,0);
+  display: none;
+  padding: 10px 10px 0 10px;
+}
+
+.imgAllContainer:hover .contenuImgContainer{
+  display: block;
+  transition: 0.5s;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.filmName{
+  color: white;
+  font-size: 25px;
+}
+
+.filmYear{
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: left;
+  color:#4a90e2;
+}
+
+.filmDescription{
+  margin-top: 10px;
+  text-align: justify;
+  font-size: 13px;
+  color: white;
+}
+.starImgContainer{
+  margin-top: 15px;
+}
+
+.heart{
+  width: 30px;
+  height: 30px;
+  margin-top: 15px;
 }
 
 .pause {
@@ -122,6 +173,10 @@ html:fullscreen {
   outline: none;
   margin-top: 8px;
   margin-left: 15px;
+}
+
+.none{
+  display: none;
 }
 
 .pause:hover {

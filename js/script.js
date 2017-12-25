@@ -1,11 +1,10 @@
 var listAllFilm = document.querySelector(".listAll");
 var player = document.querySelector(".playerContainer");
 var textDescription = document.querySelector(".describ");
-var menuItem = document.querySelectorAll(".sub-menu-item");
+var menuItem = document.querySelectorAll(".listMenuItem");
 
 for (let e = 0; e < menuItem.length; e++) {
   menuItem[e].addEventListener("click", function() {
-    console.log(e);
     categoryChoice(listAllFilm, e);
     videoChoice();
   });
@@ -13,40 +12,74 @@ for (let e = 0; e < menuItem.length; e++) {
 
 function categoryChoice(listAllFilm, e) {
   listAllFilm.innerHTML = "";
-  if (e === 5) {
+  if (e === 0) {
     var text = 'All';
-  } else if (e === 6) {
+  } else if (e === 1) {
     var text = 'Action';
-  } else if (e === 7) {
+  } else if (e === 2) {
     var text = 'Comedy';
-  } else if (e === 8) {
+  } else if (e === 3) {
     var text = 'Horror / Thriller';
   } else {
     var text = 'Animation';
   }
   for (i = 0; i < data.films.length; i++) {
     if (text === 'All') {
-      listAllFilm.innerHTML += '<li class="filmList">' +
-        '<a href="#laVideo">'+
-        '<img class="filmImg" src="img/' + data.films[i].img + '">' +
-        '<h3 class="filmName">' + data.films[i].title + '</h3>' +
-        '</a>'+
-        '</li>';
+      listCreate(listAllFilm);
+      heart();
     } else {
       if (data.films[i].category === text) {
-        listAllFilm.innerHTML += '<li class="filmList">' +
-          '<a href="#laVideo">'+
-          '<img class="filmImg" src="img/' + data.films[i].img + '">' +
-          '<h3 class="filmName">' + data.films[i].title + '</h3>' +
-          '</a>'+
-          '</li>';
+        listCreate(listAllFilm);
+        heart();
       }
     }
+
+  }
+}
+
+function listCreate(listAllFilm) {
+  listAllFilm.innerHTML += '<li class="filmList choix">' +
+    '<div class="imgAllContainer">' +
+    '<a href="#laVideo">' +
+    '<img class="filmImg" src="img/' + data.films[i].img + '">' +
+    '<div class="contenuImgContainer">' +
+    '<h3 class="filmName">' + data.films[i].title + '</h3>' +
+    '<h3 class="filmYear">' + data.films[i].year + '</h3>' +
+    '<p class="filmDescription">' + data.films[i].description + '</p>' +
+    '<div id="star' + i + '" class="starImgContainer"></div>' +
+    '<img class="heart" src="img/like.svg"></img>' +
+    '</div>' +
+    '</a>' +
+    '</div>' +
+    '</li>';
+  var star = document.getElementById("star" + i);
+  for (var a = 0; a < data.films[i].rating; a++) {
+    star.innerHTML += '<img class="rating" src="img/star.png">';
+  }
+  for (var a = 0; a < (5 - data.films[i].rating); a++) {
+    star.innerHTML += '<img class="rating" src="img/starEmpty.png">';
+  }
+}
+
+function heart() {
+  var heart = document.querySelectorAll(".heart");
+  var listWanted = document.querySelector(".envieList");
+  for (let h = 0; h < heart.length; h++) {
+    heart[h].addEventListener("mouseover", function() {
+      heart[h].src = "img/like-2.svg";
+    })
+    heart[h].addEventListener("mouseout", function() {
+      heart[h].src = "img/like.svg";
+    })
+    heart[h].addEventListener("click", function() {
+      var name = document.querySelectorAll(".filmName");
+      listWanted.innerHTML += '<li class="sub-menu-item">' + name[h].textContent + '</li>';
+    })
   }
 }
 
 function videoChoice() {
-  var list = document.querySelectorAll(".filmList");
+  var list = document.querySelectorAll(".choix");
   var p = 1
   for (let i = 0; i < list.length; i++) {
     list[i].addEventListener("click", function() {
@@ -72,10 +105,8 @@ function videoChoice() {
       video.addEventListener("timeupdate", function() {
         update(video);
         document.querySelector('#progressTime').textContent = formatTime(video.currentTime);
-
       });
       fullScreen(video, playerContainer, menu, fullscreen);
-
     });
   }
 }
@@ -132,15 +163,6 @@ function videoCreate(player, textDescription, c) {
 function hoverVideo(player, menu) {
   player.addEventListener("mouseover", function() {
     menu.style.display = "";
-
-    /*  player.addEventListener("mousemove", function() {
-        menu.style.display = "";
-        player.style.cursor = "";
-        setTimeout(function() {
-          menu.style.display = "none";
-          player.style.cursor = "none";
-        }, 3000);
-      });*/
   });
   player.addEventListener("mouseout", function() {
     menu.style.display = "none";
