@@ -33,7 +33,6 @@ function categoryChoice(listAllFilm, e) {
         heart();
       }
     }
-
   }
 }
 
